@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: es-core
+  jackson:
+    default-property-inclusion: use_defaults
+    serialization:
+      write_dates_as_timestamps: true
+    deserialization:
+      fail-on-unknown-properties: false
+server:
+  port: 8080
