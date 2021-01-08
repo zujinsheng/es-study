@@ -7,6 +7,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +46,8 @@ public class BookController {
         List<String> tags = new ArrayList<>();
         tags.add("技术");
         tags.add("系统");
+        bookBean.setPrice(new BigDecimal("120.88"));
+        bookBean.setDescription("学习Linux好书籍，菜鸟必备");
         bookBean.setBookTag(tags);
         return bookBean;
     }
@@ -73,4 +76,14 @@ public class BookController {
         return null;
     }
 
+    @GetMapping("/deleteIndex")
+    public String deleteIndex() {
+        try {
+            boolean deleteIndex = bookService.deleteIndex("book");
+            return deleteIndex ? "删除完成" : "删除失败";
+        } catch (Exception ex) {
+            log.error(ex.getStackTrace().toString());
+        }
+        return null;
+    }
 }

@@ -47,10 +47,9 @@ public class BookService extends BaseQueryService<Book> {
         return elasticsearchRestTemplate.get(id, Book.class);
     }
 
-//    @Override
-//    public boolean deleteIndex(String indexName) {
-//        return elasticsearchRestTemplate.deleteIndex(indexName);
-//    }
+    public boolean deleteIndex(String indexName) {
+        return elasticsearchRestTemplate.deleteIndex(indexName);
+    }
 
 
     public String save(Book bookBean) {
