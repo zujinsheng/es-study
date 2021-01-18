@@ -39,6 +39,22 @@ public class BookController {
         }
     }
 
+    @PostMapping("/batchSaveBook")
+    public String batchSaveBook() {
+        try {
+            for (int i = 0; i < 100; i++) {
+                Book bookBean = getDefaultBook();
+                bookBean.setBookId("book" + i);
+                bookBean.setBookName("book" + i);
+                bookBean.setPrice(new BigDecimal("120.88"));
+                String bookId = bookService.save(bookBean);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        return "ok";
+    }
+
     private Book getDefaultBook() {
         Book bookBean = new Book();
         bookBean.setBookId("linux");
