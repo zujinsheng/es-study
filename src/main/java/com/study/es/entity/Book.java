@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author zujs
  */
-@Document(indexName = "book")
+@Document(indexName = "book1")
 @Data
 public class Book {
     /**
@@ -41,6 +41,6 @@ public class Book {
     /**
      * 描述
      */
-    @Field(type = FieldType.Text, analyzer = "ik_smart")
+    @Field(type = FieldType.Text, analyzer = "ik_smart", searchAnalyzer = "ik_smart")
     private String description;
 }
